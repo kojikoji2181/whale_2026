@@ -359,7 +359,7 @@ input[type="text"]:focus {
     background-size: 100% auto;
     /* 幅に合わせて全体を表示 */
     background-repeat: no-repeat;
-    background-position: center bottom;
+    background-position: center center;
     background-attachment: scroll;
     /* コンテンツが少ない時の見え方を調整 */
 }
@@ -367,5 +367,9 @@ input[type="text"]:focus {
 @media (min-width: 768px) {
     .container {
         max-width: 800px;
+    }
+
+    .bg-pattern {
+        background-position: center bottom;
     }
 }

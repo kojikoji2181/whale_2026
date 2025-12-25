@@ -37,12 +37,18 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     background-color: #f0f9ff;
+    /* User provided pattern */
+    background-image: url('images/IMG_3360.jpg');
+    background-repeat: repeat;
+    background-size: 750px auto;
+    /* パターンの大きさを調整 */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
 }
 
+/* Background */
 /* Background */
 .bg-pattern {
     position: fixed;
@@ -51,8 +57,9 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('images/IMG_3350.JPG');
-    background-size: cover;
-    background-position: center bottom;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
     z-index: -2;
     opacity: 1;
 }
@@ -353,15 +360,6 @@ input[type="text"]:focus {
 .badge-whale {
     background-color: #e8eaf6;
     border: 2px solid #c5cae9;
-}
-
-.bg-pattern {
-    background-size: 100% auto;
-    /* 幅に合わせて全体を表示 */
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
-    /* コンテンツが少ない時の見え方を調整 */
 }
 
 @media (min-width: 768px) {

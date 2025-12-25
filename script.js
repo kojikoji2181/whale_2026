@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginSection = document.getElementById('login-section');
     const videoSection = document.getElementById('video-section');
     const videoGrid = document.getElementById('video-grid');
-    const errorMessage = document.getElementById('error-message');
-
     // Video Data
     const videos = [
         {

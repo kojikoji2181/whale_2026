@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ありがとう 南浦和おおぞら保育園</title>
+    <!-- Google Fonts: Zen Maru Gothic for rounded, cute look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Favicon (using emoji logic in script or just omit) -->
+</head>
+
+<body>
+    <div class="bg-pattern"></div>
+    <div class="overlay"></div>
+
+    <main class="container">
+        <header class="header animate-up">
+            <h1 class="site-title">
+                <span>ありがとう</span><br>
+                <span>南浦和おおぞら保育園</span>
+            </h1>
+            <p class="site-subtitle">令和8年3月18日　謝恩会ムービー</p>
+        </header>
+
+        <!-- Login Section -->
+        <section id="login-section" class="card login-card animate-up delay-1">
+            <div class="card-content">
+
+                <h2>合言葉を入力してください</h2>
+
+
+                <div class="input-group">
+                    <input type="text" id="password-input">
+                </div>
+                <p id="error-message" class="error-message hidden">⚠ 合言葉が違います</p>
+
+                <button id="login-btn" class="btn btn-primary">思い出を見る 🐳</button>
+
+                <p class="bgm-notice">🎵 画面をタッチするとBGMが流れます<br>（音量にご注意ください）</p>
+            </div>
+        </section>
+
+        <!-- Video List Section (Hidden initially) -->
+        <section id="video-section" class="hidden">
+            <div class="section-header animate-up">
+                <h2>🎬 思い出の動画一覧</h2>
+                <p>下記より再生・ダウンロードが可能です</p>
+            </div>
+
+            <div class="video-grid" id="video-grid">
+                <!-- Video items will be injected by JS -->
+            </div>
+
+            <!-- Footer Note Removed -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p><small>&copy; 2026南浦和おおぞら保育園　謝恩会</small></p>
+    </footer>
+
+    <audio id="bgm" loop>
+        <source src="audio/bgm.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -40,40 +40,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // BGM Control
     const bgm = document.getElementById('bgm');
-    let isBgmPlaying = false;
 
-    function startBgm() {
-        if (!isBgmPlaying && bgm) {
-            bgm.volume = 0.5; // Set initial volume
-            bgm.play().then(() => {
-                isBgmPlaying = true;
-                // Remove listeners once playing
-                document.removeEventListener('click', startBgm);
-                document.removeEventListener('keydown', startBgm);
-            }).catch(e => {
-                console.log("BGM autoplay blocked, waiting for interaction");
-            });
+
+    function toggleBgm(e) {
+        // 入力フォームやボタンクリック時はBGM操作を無視する
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
+            return;
+        }
+
+        if (bgm) {
+            if (bgm.paused) {
+                bgm.volume = 0.5;
+                bgm.play().catch(e => console.log("BGM play failed", e));
+            } else {
+                bgm.pause();
+            }
         }
     }
 
     // Stop BGM with fade out
     function stopBgm() {
-        if (bgm) {
+        if (bgm && !bgm.paused) {
+            // リスナーを削除して誤作動を防ぐ
+            document.removeEventListener('click', toggleBgm);
+
             const fadeOut = setInterval(() => {
                 if (bgm.volume > 0.05) {
                     bgm.volume -= 0.05;
                 } else {
                     bgm.pause();
-                    bgm.volume = 0.5; // Reset for next time if needed
+                    bgm.volume = 0.5; // Reset for next time
                     clearInterval(fadeOut);
                 }
             }, 100);
         }
     }
 
-    // Attempt to play on user interaction
-    document.addEventListener('click', startBgm);
-    document.addEventListener('keydown', startBgm);
+    // Toggle play/pause on user interaction
+    document.addEventListener('click', toggleBgm);
 
     // Login Function
     function checkLogin() {

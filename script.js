@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Stop BGM with fade out
     function stopBgm() {
-        if (bgm && !bgm.paused) {
-            // リスナーを削除して誤作動を防ぐ
-            document.removeEventListener('click', toggleBgm);
+        // ログイン後は必ずイベントリスナーを削除して、再度の再生を防ぐ
+        document.removeEventListener('click', toggleBgm);
 
+        if (bgm && !bgm.paused) {
             const fadeOut = setInterval(() => {
                 if (bgm.volume > 0.05) {
                     bgm.volume -= 0.05;

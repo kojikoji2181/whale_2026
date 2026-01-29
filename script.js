@@ -38,46 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // BGM Control
-    const bgm = document.getElementById('bgm');
 
-
-    function toggleBgm(e) {
-        // 入力フォームやボタンクリック時はBGM操作を無視する
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
-            return;
-        }
-
-        if (bgm) {
-            if (bgm.paused) {
-                bgm.volume = 0.5;
-                bgm.play().catch(e => console.log("BGM play failed", e));
-            } else {
-                bgm.pause();
-            }
-        }
-    }
-
-    // Stop BGM with fade out
-    function stopBgm() {
-        // ログイン後は必ずイベントリスナーを削除して、再度の再生を防ぐ
-        document.removeEventListener('click', toggleBgm);
-
-        if (bgm && !bgm.paused) {
-            const fadeOut = setInterval(() => {
-                if (bgm.volume > 0.05) {
-                    bgm.volume -= 0.05;
-                } else {
-                    bgm.pause();
-                    bgm.volume = 0.5; // Reset for next time
-                    clearInterval(fadeOut);
-                }
-            }, 100);
-        }
-    }
-
-    // Toggle play/pause on user interaction
-    document.addEventListener('click', toggleBgm);
 
     // Login Function
     function checkLogin() {
@@ -86,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input === PASSWORD) {
             // Success
             handleLoginSuccess();
-            stopBgm(); // Stop music when entering the main site
+
         } else {
             // Error
             showError();

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 2,
             title: "かに組～いるか組",
             desc: "製作者：さやかちゃんママ",
-            emoji: "🐦",
+            emoji: "🚢",
             theme: "seagull",
             file: "videos/かに組～いるか組.mp4"
         },
@@ -38,8 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-
-
     // Login Function
     function checkLogin() {
         const input = passwordInput.value.trim();
@@ -47,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input === PASSWORD) {
             // Success
             handleLoginSuccess();
-
         } else {
             // Error
             showError();
@@ -101,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="video-wrapper">
-                    <video controls poster="images/poster_placeholder.png" preload="metadata">
+                    <video controls preload="metadata">
                         <source src="${video.file}" type="video/mp4">
                         お使いのブラウザは動画タグに対応していません。
                     </video>
